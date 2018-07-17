@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div>ddddd</div>
+<p></p>
+
+<!--<script>-->
+    <!--$(document).keyup(function(e){-->
+        <!--if(e.keyCode==27){-->
+            <!--$(body).toogleClass('show-nav');-->
+        <!--}-->
+    <!--});-->
+    <!--$('div').hover(handlerIn, handlerOut)-->
+    <!--$('div').mouseenter(handlerIn).mouseleave(handlerOut);-->
+<!--</script>-->
+<script>
+    var arr=['a','b','c','d','e'];
+    $('div').text(arr.join(','));
+    arr=jQuery.map(arr,function(n,i){
+        return (n.toUpperCase()+i);
+    });
+    $('p').text(arr.join(','));
+    arr=jQuery.map(arr, function(a){
+        return a+a;
+    });
+    $('span').text(arr.join(','));
+</script>
+</body>
+</html>

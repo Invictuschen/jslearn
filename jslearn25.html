@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Broadcating</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="firstCtrl" style="">
+    <h1>Parent Controller</h1>
+    <p>Emit Message:{{message}}</p>
+    <br>
+    <div ng-controller="secCtrl" style="border:2px solid #428bca; padding:5px;">
+        <h1>Child Controller</h1>
+        <input ng-model="msg">
+        <button ng-click="handleClick(msg);">Emit</button>
+    </div>
+</div>
+</body>
+<script src="angular.min.js">
+</script>>
+<script src="js16.js"></script>
+</html>

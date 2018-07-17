@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<form action="" name="myForm" ng-controller="firstCtrl">
+    <div ng-class="{
+    'has-error':myForm.username.$dirty&&myForm.username.$invalid
+    }">
+        <label> UserName</label>
+        <div>
+            <input type="text" name="username" class="form-control" placeholder="UserName"
+                   ng-model="data.username" ng-required="true"
+                ng-minlength="6" ng-maxlength="12"
+            ng-pattern="/^[a-zA-Z]{1}/">
+            <div ng-show="myForm.username.$error.maxlength"
+                 class="class alert alert-danger help-block">
+        Username's length cannot over 12
+            </div>
+            <div ng-show="myForm.username.$error.minlength"
+                 class="class alert alert-danger help-block">
+                Username's length cannot less than 6
+            </div>
+            <div ng-show="myForm.username.$error.pattern"
+                 class="class alert alert-danger help-block">
+                Username must start in letter
+            </div>
+        </div>
+    </div>
+
+    <div ng-class="{
+    'has-error':myForm.password.$dirty&&myForm.password.$invalid
+    }">
+        <label> Password</label>
+        <div>
+            <input type="text" name="password" class="form-control" placeholder="Password"
+                   ng-model="data.username" ng-required="true"
+                   ng-minlength="6" ng-maxlength="12"
+                   ng-pattern="/^[a-zA-Z]{1}/">
+            <div ng-show="myForm.username.$error.maxlength"
+                 class="class alert alert-danger help-block">
+                Username's length cannot over 12
+            </div>
+            <div ng-show="myForm.username.$error.minlength"
+                 class="class alert alert-danger help-block">
+                Username's length cannot less than 6
+            </div>
+            <div ng-show="myForm.username.$error.pattern"
+                 class="class alert alert-danger help-block">
+                Username must start in letter
+            </div>
+        </div>
+    </div>
+
+</form>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="angular.min.js"></script>
+<script>
+    angular.module('myApp',[])
+        .controller('firstCtrl',function()
+        {
+
+        })
+
+</script>
+</body>
+</html>

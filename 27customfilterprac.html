@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<ul ng-controller="namesCtrl">
+    <li ng-repeat="x in names">
+        {{ x| myFormat}}
+    </li>
+    <br>
+    <li ng-repeat="x in names">
+        {{ x| myFormat1}}
+    </li>
+</ul>
+
+<script src="angular.min.js"></script>
+<script>
+// custom filter的第一种  $filterProvider.register(name,function)
+angular.module('myApp',[],function($filterProvider){
+    $filterProvider.register('myFormat',function(){
+        var i=0;
+        return function(x){
+
+            if(i%2==0)
+                    {
+                        x=x.toUpperCase();
+                    }
+                    i++;
+                    return x;
+        }
+    })
+
+})
+    .controller('namesCtrl',function($scope)
+    {
+        $scope.names=['jane','lily','fuck','google','att']
+    })
+    // custom filter的第二种，module.filter(name,function)
+.filter('myFormat1',function()
+    {
+        var i=1;
+        return function(x)
+        {
+            if(i%2==0)
+            {
+                x=x.toUpperCase();
+            }
+            i++;
+            return x;
+        }
+    })
+
+
+</script>
+</body>
+</html>

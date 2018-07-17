@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<form action="" ng-controller="myCtrl">
+Username<br><input type="text"><br>
+Password<br><input type="text"><br>
+Confirmation Password<br><input type="text"><br>
+Email<br><input type="text"><br>
+URL<br><input type="text"><br>
+Age<br><input type="text"><br>
+Sex<br>
+<input type="radio" name="gender" value="male" checked> Male
+<input type="radio" name="gender" value="female"> Female<br>
+Hobby<br>
+<input type="checkbox" name="hobby" value="Playing" checked>Playing
+<input type="checkbox" name="hobby" value="Coding" checked>Coding
+<input type="checkbox" name="hobby" value="Sleeping">Sleeping
+Born place <br>
+<select name="State" id="1" ng-model="selectedAddr" ng-options="y.State for (x,y) in address"></select><br>
+<select name="City" id="2" ng-show="selectedAddr" ng-model="selectedAddr1" ng-options="y.City for (x,y) in selectedAddr.Area"></select>{{selectedAddr.City}}<br>
+<select name="District" id="3" ng-show="selectedAddr1" ng-model="selectedAddr2" ng-options="y for y in selectedAddr1.District"></select><br>
+Personal Information <br>
+    <input type="submit" value="Register"> <input type="reset" value="Reset">
+</form>
+<script src="angular.min.js"></script>
+<script>
+angular.module('myApp',[])
+
+.controller('myCtrl',function($scope)
+{
+    $scope.address=
+
+        {
+            addr1: {
+                State: 'VA',
+                Area:
+                    [
+                        {
+                            City:'Arlington',District:['Eads street','Moores street']
+                        },
+                        {
+                            City:'Sherrington',District:['X street' , 'Ann Street', 'People square']
+                        }
+
+                    ]
+
+            }
+            ,
+
+            addr2:
+                {
+                    State: 'NJ',
+                    Area:
+                        [
+                            {
+                                City:'Princeton',District:['Carnegie Drive','Princeton Drive']
+                            }
+
+                        ]
+                }
+
+        }
+
+})
+
+
+</script>
+</body>
+</html>

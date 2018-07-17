@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<div ng-init="money=123456789">
+
+    {{money |currency}}<br>
+    <!--内置的filter功能-->
+    {{money |number}}
+
+</div>
+<script src="angular.min.js"></script>
+<script>
+    var app=angular.module('myApp',[]);
+</script>
+</body>
+</html>

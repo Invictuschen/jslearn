@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body ng-app="myApp">
+<div ng-controller="Ctrl1" style="border:2px solid blue; padding: 5px">
+    Hello{{msg}}<br>
+    Hello{{name}}!(rootScope)
+</div>
+<div ng-controller="Ctrl2" style="border:2px solid blue; padding: 5px">
+    Hello{{msg}}<br>
+    Hey{{myName}}!<br>
+    Hi{{name}}!(rootScope)
+</div>
+<script src="angular.min.js"></script>
+<script>
+    var app= angular.module('myApp',[]);
+    app.controller('Ctrl1',function($scope,$rootScope)
+    {
+        $scope.msg='World';
+        $rootScope.name='AngularJS';
+
+    })
+    app.controller('Ctrl2',function($scope,$rootScope)
+    {
+        $scope.msg='Dot Net Tricks';
+        $rootScope.myName=$rootScope.name;
+    })
+</script>
+</body>
+</html>
